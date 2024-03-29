@@ -4,6 +4,7 @@ import ForecastCard from "./Components/ForecastCard";
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Weather = () => {
 
@@ -16,6 +17,12 @@ const Weather = () => {
 
     useEffect(() => {
     }, [weatherData]);
+
+    const navigate = useNavigate();
+
+    const back = () => {
+        navigate("/");
+      };
 
     const fetchWeatherData = async () => {
         try {
@@ -30,10 +37,12 @@ const Weather = () => {
     };
     return (
         <div className="container flex center">
+            <button onClick={back}>Back to Home</button>
             {weatherData && <WeatherCard data={weatherData}/>}
             {weatherData && weatherData.forecast.forecastday.map((forecast, index) => (
                 index !== 0 && <ForecastCard key={forecast.date} forecast={forecast} location={weatherData.location} />
             ))}
+            <button onClick={back}>Back to Home</button>
         </div>
     );
 }
