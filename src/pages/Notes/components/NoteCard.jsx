@@ -25,7 +25,7 @@ const NoteCard = ({ id, text, handleDeleteNote, handleEditNote }) => {
                     onChange={(e) => setEditText(e.target.value)}
                 />
             ) : (
-                <p className="content">{text}</p>
+                <textarea className="content" readOnly>{text}</textarea>
             )}
             <div className='note-footer'>
                 {isEditing ? (

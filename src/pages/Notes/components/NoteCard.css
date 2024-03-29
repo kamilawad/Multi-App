@@ -11,6 +11,14 @@
     background-color: #d0e768;
 }
 
+.note-card > input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 5px;
+    padding: 5px;
+}
+
 .note-footer {
     align-self: flex-end;
 }
@@ -37,4 +45,10 @@
 
 .edit-btn:hover {
     background-color: #73a6c9;
+}
+
+.content {
+    background-color: #d0e768;
+    overflow: hidden;
+
 }
