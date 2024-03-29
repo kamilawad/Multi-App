@@ -27,19 +27,22 @@ const Notes = () => {
 	};
 
     return (
-        <div className='container'>
-			<div className='notes-list'>
+        <div className='container flex column center'>
+            <div className="user-input flex center space-between">
+                <input type="text" value={newNoteText} onChange={(e) => setNewNoteText(e.target.value)}
+                placeholder="Enter your note"/>
+                <button onClick={handleAddNote}>Add Note</button>
+            </div>
+			<div className='notes-list flex'>
                 {notes.map((note) => (
                     <NoteCard
+                        key={note.id}
                         id={note.id}
                         text={note.text}
                         handleDeleteNote={handleDeleteNote}
                     />
                 ))}	
 		    </div>
-            <input type="text" value={newNoteText} onChange={(e) => setNewNoteText(e.target.value)}
-                placeholder="Enter your note" />
-            <button onClick={handleAddNote}>Add Note</button>
 		</div>
     );
 }

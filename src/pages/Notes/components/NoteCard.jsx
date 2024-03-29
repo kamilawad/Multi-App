@@ -1,10 +1,12 @@
+import "./NoteCard.css";
 
 const NoteCard = ({ id, text, handleDeleteNote }) => {
 	return (
 		<div className='note-card'>
-			<p>{text}</p>
+			<p className="content">{text}</p>
 			<div className='note-footer'>
-				<button onClick={() => handleDeleteNote(id)}>Delete</button>
+				<button className="delete-btn" onClick={() => handleDeleteNote(id)}>Delete</button>
+				
 			</div>
 		</div>
 	);
