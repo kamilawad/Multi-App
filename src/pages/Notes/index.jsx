@@ -18,6 +18,16 @@ const Notes = () => {
 	    const newNotes = notes.filter((note) => note.id !== id);
 		setNotes(newNotes);
 	};
+
+    const handleEditNote = (id, newText) => {
+        const newNotes = notes.map((note) => {
+            if (note.id === id) {
+                return { ...note, text: newText };
+            }
+            return note;
+        });
+        setNotes(newNotes);
+    };
     
     const handleAddNote = () => {
 		if (newNoteText.trim()) {
@@ -40,6 +50,7 @@ const Notes = () => {
                         id={note.id}
                         text={note.text}
                         handleDeleteNote={handleDeleteNote}
+                        handleEditNote={handleEditNote}
                     />
                 ))}	
 		    </div>

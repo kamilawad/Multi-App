@@ -29,12 +29,12 @@
 
 .edit-btn {
     color: white;
-    background-color: #7fee69;
+    background-color: #4190c5;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
 }
 
 .edit-btn:hover {
-    background-color: #8fe97d;
+    background-color: #73a6c9;
 }
