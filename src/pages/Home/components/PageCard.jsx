@@ -9,10 +9,9 @@ const PageCard = ({ title, description, link }) => {
     };
   
     return (
-      <div className="page-card" onClick={handleClick}>
+      <div className="page-card flex column center" onClick={handleClick}>
         <h2>{title}</h2>
         <p>{description}</p>
-        <p>Go to {title}</p>
       </div>
     );
 }
