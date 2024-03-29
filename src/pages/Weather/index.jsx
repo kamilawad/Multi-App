@@ -22,7 +22,11 @@ const Weather = () => {
 
     const back = () => {
         navigate("/");
-      };
+    };
+
+    const handleCitySearch = (e) => {
+        setCity(e.target.value);
+    };
 
     const fetchWeatherData = async () => {
         try {
@@ -36,13 +40,20 @@ const Weather = () => {
         }
     };
     return (
-        <div className="container flex center">
-            <button onClick={back}>Back to Home</button>
-            {weatherData && <WeatherCard data={weatherData}/>}
-            {weatherData && weatherData.forecast.forecastday.map((forecast, index) => (
-                index !== 0 && <ForecastCard key={forecast.date} forecast={forecast} location={weatherData.location} />
-            ))}
-            <button onClick={back}>Back to Home</button>
+        <div className="container flex column">
+            <div className="search-bar">
+                <input type="text" value={city} onChange={handleCitySearch} />
+                <button onClick={fetchWeatherData}>Search</button>
+            </div>
+            <div className="flex center">
+                <button onClick={back}>Back to Home</button>
+                {weatherData && <WeatherCard data={weatherData}/>}
+                {weatherData && weatherData.forecast.forecastday.map((forecast, index) => (
+                    index !== 0 && <ForecastCard key={forecast.date} forecast={forecast} location={weatherData.location} />
+                ))}
+                <button onClick={back}>Back to Home</button>
+            </div>
+            
         </div>
     );
 }
